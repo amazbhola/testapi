@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Department;
+use App\Models\Location;
+use App\Models\Tender;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,9 +18,19 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
+        User::create([
+            'username' => 'Sohel',
+            'email' => 'sohel@sohel.com',
+            'password' => bcrypt('12345678'),
         ]);
+
+        $this->call(RolePermissionSeeder::class);
+        Location::factory(10)->create();
+        Department::factory(10)->create();
+        Tender::factory(10)->create();
     }
 }

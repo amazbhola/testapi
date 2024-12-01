@@ -22,7 +22,7 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'username' => 'required',
             'email' => 'required|email |unique:users,email',
             'password' => 'required',
         ];
@@ -31,7 +31,7 @@ class UserRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Name is required',
+            'username.required' => 'User Name is required',
             'email.required' => 'Email is required',
             'email.email' => 'Email is not valid',
             'email.unique' => 'Email already exists',
