@@ -13,7 +13,7 @@ class AuthController extends BaseController
 {
     public function signUp(UserRequest $request)
     {
-        dd($request->all());
+
         if($request->has('username') && $request->has('email') && $request->has('password')) {
             $user = User::create([
                 'username' => $request->username,
