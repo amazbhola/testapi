@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\API\BaseController;
+use App\Http\Requests\TenderRequest;
 use App\Models\Tender;
 use Illuminate\Http\Request;
 
@@ -32,9 +33,15 @@ class TenderController extends BaseController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TenderRequest $request)
     {
-        //
+
+        try {
+            $tender = Tender::create($request->all());
+            return $this->sendResponse($tender, "Tender Created");
+        } catch (\Throwable $th) {
+            return $this->sendError($th->getMessage());
+        }
     }
 
     /**

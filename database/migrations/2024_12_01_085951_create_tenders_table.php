@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('tenders', function (Blueprint $table) {
             $table->id();
-            $table->string('tender_id');
+            $table->string('tender_id')->unique();
             $table->string('description');
-            $table->decimal('document_price');
-            $table->decimal('tender_security');
+            $table->string('document_price');
+            $table->string('tender_security');
+            $table->string('liquid_amount');
             $table->date('last_sale_date');
             $table->date('opening_date')->nullable();
             $table->date('closing_date')->nullable();

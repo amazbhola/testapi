@@ -27,6 +27,8 @@ class TenderFactory extends Factory
             'closing_date' => $this->faker->date,
             'method' => $this->faker->randomElement(['LTM', 'OTM', 'OSTETM', 'RFQ']),
             'tender_capacity' => $this->faker->randomFloat(2, 0, 100),
+            'turnover' => $this->faker->randomFloat(2, 0, 100),
+            'liquid_amount' => $this->faker->randomFloat(2, 0, 100),
             'note' => $this->faker->sentence,
             'created_by' => 1,
             'updated_by' => 1,
