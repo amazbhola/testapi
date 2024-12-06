@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tenders', function (Blueprint $table) {
             $table->id();
-            $table->string('tender_id')->unique();
+            $table->integer('tender_id')->unique();
             $table->string('description');
             $table->string('document_price');
             $table->string('tender_security');

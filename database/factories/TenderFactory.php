@@ -18,7 +18,7 @@ class TenderFactory extends Factory
     public function definition(): array
     {
         return [
-            'tender_id' => $this->faker->uuid,
+            'tender_id' => $this->faker->unique()->randomNumber(9),
             'description' => $this->faker->sentence,
             'document_price' => $this->faker->randomFloat(2, 100, 1000),
             'tender_security' => $this->faker->randomFloat(2, 1000, 10000),
