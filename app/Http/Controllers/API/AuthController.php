@@ -61,7 +61,8 @@ class AuthController extends BaseController
 
     public function allTenders()
     {
-        $tenders = Tender::all();
+
+        $tenders = Tender::where('last_sale_date', '>', date('Y-m-d'))->get();
         return $this->sendResponse($tenders, 'success');
     }
 }
