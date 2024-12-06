@@ -38,7 +38,7 @@ class Tender extends Model
 
     public function location()
     {
-        return $this->belongsTo(Location::class, 'location', 'id');
+        return $this->belongsTo(Upazila::class, 'location_id', 'id');
     }
 
     public function createdBy()

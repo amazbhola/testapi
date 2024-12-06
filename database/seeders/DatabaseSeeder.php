@@ -29,7 +29,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call(RolePermissionSeeder::class);
-        Location::factory(10)->create();
+        $this->call(DivisionSeeder::class);
+        $this->call(DistrictSeeder::class);
+        $this->call(UpazilaSeeder::class);
         Department::factory(10)->create();
         Tender::factory(10)->create();
     }

@@ -11,14 +11,33 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('locations', function (Blueprint $table) {
+        Schema::create('divisions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('address')->nullable();
-            $table->string('status')->nullable();
-            $table->softDeletes();
+            $table->string('bn_name')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('long')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('districts', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('bn_name')->nullable();
+            $table->foreignId('division_id')->constrained()->onDelete('cascade');
+            $table->string('lat')->nullable();
+            $table->string('long')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('upazilas', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('bn_name')->nullable();
+            $table->foreignId('district_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
+        });
+
     }
 
     /**
