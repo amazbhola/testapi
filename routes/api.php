@@ -23,7 +23,7 @@ Route::post('login', [AuthController::class, 'signIn']);
 Route::get('alltender', [WithoutApiTender::class, 'allTender']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('signOut', [AuthController::class, 'signOut']);
+    Route::post('logout', [AuthController::class, 'signOut']);
     Route::resource('student', StudentController::class);
     Route::resource('role', RolePermissionController::class);
     Route::resource('tender',TenderController::class);

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends BaseController
 {
-    public function signUp(UserRequest $request)
+    public function signUp(UserRequest $request): \Illuminate\Http\JsonResponse
     {
 
         if($request->has('username') && $request->has('email') && $request->has('password')) {
@@ -28,7 +28,7 @@ class AuthController extends BaseController
 
     }
 
-    public function signIn(Request $request)
+    public function signIn(Request $request): \Illuminate\Http\JsonResponse
     {
         $validateUser = Validator::make($request->all(), [
             'email' => 'required|email',
@@ -51,7 +51,7 @@ class AuthController extends BaseController
 
     }
 
-    public function signOut(Request $request)
+    public function signOut(Request $request): \Illuminate\Http\JsonResponse
     {
         $user = Auth::user();
         $user->currentAccessToken()->delete();
