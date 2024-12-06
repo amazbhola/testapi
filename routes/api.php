@@ -19,6 +19,8 @@ Route::post('register', [AuthController::class, 'signUp']);
 
 Route::post('login', [AuthController::class, 'signIn']);
 
+Route::get('allTenders', [AuthController::class, 'allTenders']);
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('signOut', [AuthController::class, 'signOut']);
     Route::resource('student', StudentController::class);

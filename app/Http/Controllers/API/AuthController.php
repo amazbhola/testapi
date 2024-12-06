@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\API\BaseController;
 use App\Http\Requests\UserRequest;
+use App\Models\Tender;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,5 +57,11 @@ class AuthController extends BaseController
         $user->currentAccessToken()->delete();
 
         return $this->sendResponse($user, 'logout success');
+    }
+
+    public function allTenders()
+    {
+        $tenders = Tender::all();
+        return $this->sendResponse($tenders, 'success');
     }
 }
